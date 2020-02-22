@@ -83,7 +83,7 @@ Docker container for building MediaPipe applications that run on Edge TPU.
 
 * Object detection demo
 
-        bazel build -c opt --crosstool_top=@crosstool//:toolchains --compiler=gcc --cpu=aarch64 --define MEDIAPIPE_DISABLE_GPU=1 --copt -DMEDIAPIPE_EDGE_TPU --copt=-flax-vector-conversions mediapipe/examples/coral:object_detection_tpu
+        bazel build -c opt --crosstool_top=@crosstool//:toolchains --compiler=gcc --cpu=armhf --define MEDIAPIPE_DISABLE_GPU=1 --copt -DMEDIAPIPE_EDGE_TPU --copt=-flax-vector-conversions mediapipe/examples/coral:object_detection_tpu
 
  Copy object_detection_tpu binary to the MediaPipe checkout on the coral device
 
@@ -94,7 +94,7 @@ Docker container for building MediaPipe applications that run on Edge TPU.
 
 * Face detection demo
 
-        bazel build -c opt --crosstool_top=@crosstool//:toolchains --compiler=gcc --cpu=aarch64 --define MEDIAPIPE_DISABLE_GPU=1 --copt -DMEDIAPIPE_EDGE_TPU --copt=-flax-vector-conversions mediapipe/examples/coral:face_detection_tpu
+        bazel build -c opt --crosstool_top=@crosstool//:toolchains --compiler=gcc --cpu=armhf --define MEDIAPIPE_DISABLE_GPU=1 --copt -DMEDIAPIPE_EDGE_TPU --copt=-flax-vector-conversions mediapipe/examples/coral:face_detection_tpu
 
  Copy face_detection_tpu binary to the MediaPipe checkout on the coral device
 
