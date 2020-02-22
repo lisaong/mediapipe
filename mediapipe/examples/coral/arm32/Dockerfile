@@ -16,10 +16,15 @@
 # $ sh mediapipe/examples/coral/arm32/setup.sh
 #====
 
-# for opencv 3.4 default
-FROM ubuntu:18.04
+# Get opencv 3.4.7 libs
+FROM lisaong/python3-opencv:3.4.7 as opencv-libs
+MAINTAINER <lisaong@nus.edu.sg>
 
+FROM ubuntu:18.04
 MAINTAINER <mediapipe@google.com>
+
+# Install opencv 3.4.7 libs
+COPY --from=opencv-libs /usr/local/lib/*opencv*.so /usr/local/lib/
 
 WORKDIR /mediapipe
 
@@ -31,7 +36,6 @@ COPY update_sources.sh /
 RUN /update_sources.sh
 
 RUN dpkg --add-architecture armhf
-RUN dpkg --add-architecture arm32
 RUN apt-get update && apt-get install -y \
   build-essential \
   crossbuild-essential-armhf \
@@ -72,8 +76,7 @@ RUN mkdir /bazel && \
     rm -f /bazel/installer.sh
 
 # OpenCV (3.4.7 default in 18.04)
-
-RUN apt-get update && apt-get install -y libopencv-dev
+# RUN apt-get update && apt-get install -y libopencv-dev
 
 # Opencv libs copied from coral device into opencv34_arm32_libs
 
