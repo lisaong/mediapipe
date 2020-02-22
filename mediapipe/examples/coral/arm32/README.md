@@ -85,7 +85,7 @@ Docker container for building MediaPipe applications that run on Edge TPU.
 
         bazel build -c opt --crosstool_top=@crosstool//:toolchains --compiler=gcc --cpu=armhf --define MEDIAPIPE_DISABLE_GPU=1 --copt -DMEDIAPIPE_EDGE_TPU --copt=-flax-vector-conversions mediapipe/examples/coral:object_detection_tpu
 
- Copy object_detection_tpu binary to the MediaPipe checkout on the coral device
+ Copy object_detection_tpu binary to the MediaPipe checkout on the device
 
         # outside docker env, open new terminal on host machine #
         docker ps
@@ -96,14 +96,14 @@ Docker container for building MediaPipe applications that run on Edge TPU.
 
         bazel build -c opt --crosstool_top=@crosstool//:toolchains --compiler=gcc --cpu=armhf --define MEDIAPIPE_DISABLE_GPU=1 --copt -DMEDIAPIPE_EDGE_TPU --copt=-flax-vector-conversions mediapipe/examples/coral:face_detection_tpu
 
- Copy face_detection_tpu binary to the MediaPipe checkout on the coral device
+ Copy face_detection_tpu binary to the MediaPipe checkout on the device
 
         # outside docker env, open new terminal on host machine #
         docker ps
         docker cp <container-id>:/mediapipe/bazel-bin/mediapipe/examples/coral/face_detection_tpu /tmp/.
         mdt push /tmp/face_detection_tpu /home/mendel/mediapipe/bazel-bin/.
 
-## On the coral device (with display)
+## On the device (with display)
 
      # Object detection
      cd ~/mediapipe
