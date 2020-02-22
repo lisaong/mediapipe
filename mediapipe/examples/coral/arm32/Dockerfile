@@ -34,11 +34,11 @@ RUN dpkg --add-architecture armhf
 RUN dpkg --add-architecture arm32
 RUN apt-get update && apt-get install -y \
   build-essential \
-  crossbuild-essential-arm32 \
+  crossbuild-essential-armhf \
   libusb-1.0-0-dev \
-  libusb-1.0-0-dev:arm32 \
+  libusb-1.0-0-dev:armhf \
   zlib1g-dev \
-  zlib1g-dev:arm32 \
+  zlib1g-dev:armhf \
   pkg-config \
   zip \
   unzip \
